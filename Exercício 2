@@ -1,0 +1,46 @@
+numero = 50
+
+nivel = input("Escolha o nível (facil, medio ou dificil"))
+
+if nivel == "facil":
+    tentativas = 10
+elif nivel == "medio":
+    tentativas = 7
+elif nivel == "dificil":
+    tentativas = 5
+else:
+    print("Nível inválido")
+    tentativas = 0
+
+usadas = 0
+
+while tentativas > 0:
+
+    if tentativas > 0:
+        chute = int(input("Digite um número de 1 a 100: "))
+
+        if chute < 1 or chute > 100:
+            print("Número inválido")
+        else:
+            usadas = usadas + 1
+            tentativas = tentativas - 1
+
+            if chute == numero:
+                print("Você acertou!")
+                print("Tentativas usadas:" usadas)
+                print("Pontuação:", tentativas * 100)
+                break
+
+            elif chute > numero:
+                print("O número é menor")
+                print("Tentativas restantes:", tentativas)
+
+            else:
+                print("O número é maior")
+                print("Tentativas restantes:", tentativas)
+
+if tentativas == 0 and chute != numero:
+    print("Você perdeu!")
+    print("O número era:", numero)
+    print("Tentativas usadas:", usadas)
+    print("Pontuação: 0")
