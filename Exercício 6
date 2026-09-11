@@ -1,0 +1,53 @@
+quantidade = int(input("Quantidade de alunos: "))
+
+soma = 0
+maior = 0
+menor = 10
+melhor = ""
+pior = ""
+
+aprovados = 0
+recuperacao = 0
+reprovados = 0
+
+for i in range(quantidade):
+
+    nome = input("Nome: ")
+    n1 = float(input("Nota 1: "))
+    n2 = float(input("Nota 2: "))
+    n3 = float(input("Nota 3: "))
+    frequencia = float(input("Frequência: "))
+
+    media = (n1 + n2 + n3) / 3
+
+    print("Média:", media)
+
+    if media >= 7 and frequencia >= 75:
+        print("Aprovado")
+        aprovados = aprovados + 1
+    elif media >= 5 and frequencia >= 75:
+        print("Recuperação")
+        recuperacao = recuperacao + 1
+    else:
+        print("Reprovado")
+        reprovados = reprovados + 1
+
+    soma = soma + media
+
+    if media > maior:
+        maior = media
+        melhor = nome
+
+    if media < menor:
+        menor = media
+        pior = nome
+
+print("Média da turma:", soma / quantidade)
+print("Maior média:", maior)
+print("Melhor aluno:", melhor)
+print("Menor média:", menor)
+print("Aluno com menor média:", pior)
+print("Aprovados:", aprovados)
+print("Recuperação:", recuperacao)
+print("Reprovados:", reprovados)
+print("Percentual de aprovação:", aprovados * 100 / quantidade, "%")
