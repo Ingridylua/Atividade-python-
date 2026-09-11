@@ -1,0 +1,35 @@
+a = float(input("População da cidade A: "))
+taxaa = float(input("Taxa da cidade A: "))
+
+b = float(input("População da cidade B: "))
+taxab = float(input("Taxa da cidade B: "))
+
+limite = int(input("Máximo de anos: "))
+
+ano = 0
+ultrapassou = False
+
+for i in range(limite):
+
+    a = a + a * taxaa / 100
+    b = b + b * taxab / 100
+
+    ano = ano + 1
+
+    print("Ano:", ano)
+    print("Cidade A:", a)
+    print("Cidade B:", b)
+
+    if a > b or b > a:
+        ultrapassou = True
+        break
+
+print("Anos:", ano)
+print("População A:", a)
+print("População B:", b)
+print("Diferença:", abs(a - b))
+
+if ultrapassou:
+    print("Houve ultrapassagem")
+else:
+    print("Não houve ultrapassagem")
