@@ -1,0 +1,61 @@
+quantidade = int(input("Quantidade de números: "))
+
+num = float(input("Digite um número: "))
+
+maior = num
+menor = num
+soma = num
+
+positivos = 0
+negativos = 0
+zeros = 0
+pares = 0
+impares = 0
+
+if num > 0:
+    positivos = positivos + 1
+elif num < 0:
+    negativos = negativos + 1
+else:
+    zeros = zeros + 1
+
+if num % 2 == 0:
+    pares = pares + 1
+else:
+    impares = impares + 1
+
+for i in range(quantidade - 1):
+
+    num = float(input("Digite um número: "))
+
+    soma = soma + num
+
+    if num > maior:
+        maior = num
+
+    if num < menor:
+        menor = num
+
+    if num > 0:
+        positivos = positivos + 1
+    elif num < 0:
+        negativos = negativos + 1
+    else:
+        zeros = zeros + 1
+
+    if num % 2 == 0:
+        pares = pares + 1
+    else:
+        impares = impares + 1
+
+print("Maior:", maior)
+print("Menor:", menor)
+print("Soma:", soma)
+print("Média:", soma / quantidade)
+print("Positivos:", positivos)
+print("Negativos:", negativos)
+print("Zeros:", zeros)
+print("Pares:", pares)
+print("Ímpares:", impares)
+print("Percentual de positivos:", positivos * 100 / quantidade, "%")
+print("Percentual de pares:", pares * 100 / quantidade, "%")
