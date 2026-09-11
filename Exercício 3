@@ -1,0 +1,66 @@
+estoque = 100
+minimo = 0
+entradas = 0
+saidas = 0
+total = 0
+
+opcao = 0
+
+while opcao != 5:
+
+    print("1 - Entrada")
+    print("2 - Saída")
+    print("3 - Consultar estoque")
+    print("4 - Definir estoque mínimo")
+    print("5 - Encerrar")
+
+    opcao = int(input("Opção: "))
+
+    if opcao == 1:
+        valor = int(input("Quantidade de entrada: "))
+
+        if valor <= 0:
+            print("Quantidade inválida")
+        else:
+            estoque = estoque + valor
+            entradas = entradas + 1
+            total = total + valor
+
+    elif opcao == 2:
+        valor = int(input("Quantidade de saída: "))
+
+        if valor <= 0:
+            print("Quantidade inválida")
+        elif valor > estoque:
+            print("Não tem estoque suficiente")
+        else:
+            estoque = estoque - valor
+            saidas = saidas + 1
+            total = total + valor
+
+            if estoque < minimo:
+                print("ALERTA: estoque abaixo do mínimo")
+
+    elif opcao == 3:
+        print("Estoque:", estoque)
+
+        if estoque < minimo:
+            print("ALERTA: estoque abaixo do mínimo")
+
+    elif opcao == 4:
+        minimo = int(input("Digite o estoque mínimo: "))
+
+    elif opcao == 5:
+        print("Estoque inicial: 100")
+        print("Total de entradas:", entradas)
+        print("Total de saídas:", saidas)
+        print("Estoque final:", estoque)
+        print("Quantidade de operações:", entradas + saidas)
+
+        if estoque < minimo:
+            print("Situação: estoque abaixo do mínimo")
+        else:
+            print("Situação: estoque normal")
+
+    else:
+        print("Opção inválida")
