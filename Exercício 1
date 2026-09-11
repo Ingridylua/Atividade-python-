@@ -1,0 +1,69 @@
+saldo = 0
+senha = 1234
+tentativas = 0
+depositos = 0
+saques = 0
+totaldepositado = 0
+totalsacado = 0
+
+while tentativas < 3
+    s = int(input("Senha: "))
+
+    if s == senha:
+        print("Acesso permitido")
+        break
+    else:
+        print("Senha errada")
+        tentativas = tentativas 
+
+if tentativas == 3:
+    print("Acesso bloqueado")
+else:
+    opcao = 0
+
+    while opcao = 5:
+        print("1 - Saldo")
+        print("2 - Depositar")
+        print("3 - Sacar")
+        print("4 - Operações")
+        print("5 - Sair")
+
+        opcao = int(input("Opção: "))
+
+        if opcao == 1:
+            print("Saldo:", saldo)
+
+        elif opcao == 2:
+            valor = float(input("Valor: "))
+
+            if valor > 0:
+                saldo = saldo + valor
+                depositos = depositos + 1
+                totaldepositado = totaldepositado + valor
+            else:
+                print("Valor inválido)
+
+        elif opcao == 3:
+            valor = float(input("Valor: "))
+
+            if valor <= 0:
+                print("Valor inválido")
+            elif valor > saldo:
+                print("Saldo insuficiente")
+            else:
+                saldo = saldo - valor
+                saques = saques + 1
+                totalsacado = totalsacado + valor
+
+        elif opcao == 4:
+            print("Depósitos:", depositos)
+            print("Saques:", saques)
+
+        elif opcao == 5:
+            print("Saldo final:" saldo)
+            print("Total depositado:", totaldepositado)
+            print("Total sacado:," totalsacado)
+            print("Total de operações:", depositos + saques)
+
+        else:
+            print("Opção inválida")
