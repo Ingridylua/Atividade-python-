@@ -1,0 +1,52 @@
+quantidade = int(input("Quantidade de vendedores: "))
+
+totalvendas = 0
+totalcomissao = 0
+maior = 0
+menor = 999999999
+maiorvendedor = ""
+menorvendedor = ""
+
+for i in range(quantidade):
+
+    nome = input("Nome: ")
+    salario = float(input("Salário base: "))
+    vendas = float(input("Total vendido: "))
+    qtd = int(input("Quantidade de vendas: "))
+
+    if vendas <= 10000:
+        comissao = vendas * 0.03
+    elif vendas <= 30000:
+        comissao = vendas * 0.05
+    else:
+        comissao = vendas * 0.08
+
+    bonus = 0
+
+    if qtd > 20:
+        bonus = 500
+
+    salariofinal = salario + comissao + bonus
+    mediavenda = vendas / qtd
+
+    print("Comissão:", comissao)
+    print("Bônus:", bonus)
+    print("Remuneração final:", salariofinal)
+    print("Média por venda:", mediavenda)
+
+    totalvendas = totalvendas + vendas
+    totalcomissao = totalcomissao + comissao
+
+    if vendas > maior:
+        maior = vendas
+        maiorvendedor = nome
+
+    if vendas < menor:
+        menor = vendas
+        menorvendedor = nome
+
+print("Total vendido:", totalvendas)
+print("Total de comissões:", totalcomissao)
+print("Maior vendedor:", maiorvendedor)
+print("Menor vendedor:", menorvendedor)
+print("Média de vendas:", totalvendas / quantidade)
